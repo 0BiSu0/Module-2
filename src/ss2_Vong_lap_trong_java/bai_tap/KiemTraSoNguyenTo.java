@@ -1,8 +1,5 @@
 package ss2_Vong_lap_trong_java.bai_tap;
-
-import java.util.Enumeration;
 import java.util.Scanner;
-
 public class KiemTraSoNguyenTo {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
