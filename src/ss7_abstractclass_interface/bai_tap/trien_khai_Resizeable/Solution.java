@@ -1,4 +1,4 @@
-package ss7_abstractclass_interface.bai_tap;
+package ss7_abstractclass_interface.bai_tap.trien_khai_Resizeable;
 
 public class Solution {
     public static void main(String[] args) {

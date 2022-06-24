@@ -1,6 +1,6 @@
-package ss7_abstractclass_interface.bai_tap;
+package ss7_abstractclass_interface.bai_tap.trien_khai_Resizeable;
 
-public class Rectangle extends Shape implements Resizable{
+public class Rectangle extends Shape implements Resizable {
     private double height = 2;
     private double width = 1;
     private String color = "azure";

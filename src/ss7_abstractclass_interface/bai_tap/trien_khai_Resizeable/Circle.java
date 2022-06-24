@@ -1,6 +1,6 @@
-package ss7_abstractclass_interface.bai_tap;
+package ss7_abstractclass_interface.bai_tap.trien_khai_Resizeable;
 
-public class Circle extends Shape implements Resizable{
+public class Circle extends Shape implements Resizable {
     private double radius = 1;
     private String color = "red";
     private final double PI = 3.1415d;

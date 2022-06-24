@@ -1,4 +1,7 @@
-package ss7_abstractclass_interface.bai_tap;
+package ss7_abstractclass_interface.bai_tap.trien_khai_Resizeable;
+
+import ss7_abstractclass_interface.bai_tap.trien_khai_Resizeable.Shape;
+
 public class Square extends Shape {
     private double width = 1;
     private String color = "black";
