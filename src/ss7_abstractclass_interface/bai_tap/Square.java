@@ -1,46 +1,44 @@
 package ss7_abstractclass_interface.bai_tap;
 public class Square extends Shape {
-    private double side;
+    private double width = 1;
+    private String color = "black";
 
     public Square() {
     }
 
-    public Square(double side) {
-        this.side = side;
-    }
-
-    public Square(double side, String color, boolean filled) {
-        super(color,filled);
-        this.side = side;
-    }
-
-    public double getSide() {
-        return side;
-    }
-
-    public void setSide(double side) {
-        this.side = side;
+    public Square(double width, String color) {
+        this.width = width;
+        this.color = color;
     }
 
     @Override
-    public String toString() {
-        return "A Square with side="
-                + getSide()
-                + ", which is a subclass of "
-                + super.toString()
-                + ", Area=" +
-                + getArea();
+    public void resize() {
+        double resize = randomPercent();
+        System.out.printf("New Area of Square: %.2f with resize %.2f %%\n", getArea() * resize, resize*100);
     }
 
-    double getArea() {
-        return side * side;
+
+    @Override
+    protected void finalize() throws Throwable {
+        super.finalize();
     }
 
-    public Square(String color, boolean filled) {
-        super(color, filled);
+    public double randomPercent() {
+        return (Math.random() * 100) / 100d;
     }
 
-    public void resize(double percent) {
-        this.side *= (percent / 200);
+    @Override
+    public void getInfo() {
+        System.out.printf("Square width: %.2f, color %s has area %.2f, perimeter %.2f\n", width, color, getArea(), getPerimeter());
+    }
+
+    @Override
+    public double getArea() {
+        return Math.pow(width, 2);
+    }
+
+    @Override
+    public double getPerimeter() {
+        return 4 * width;
     }
 }

@@ -1,65 +1,43 @@
 package ss7_abstractclass_interface.bai_tap;
 
-public class Rectangle extends Shape {
-    private double width = 1.0;
-    private double length = 1.0;
+public class Rectangle extends Shape implements Resizable{
+    private double height = 2;
+    private double width = 1;
+    private String color = "azure";
 
     public Rectangle() {
     }
 
-    public Rectangle(double width, double length) {
+    public Rectangle(double height, double width, String color) {
+        this.height = height;
         this.width = width;
-        this.length = length;
-    }
-
-    public Rectangle(double width, double length, String color, boolean filled) {
-        super(color, filled);
-        this.width = width;
-        this.length = length;
-    }
-
-    public double getWidth() {
-        return width;
-    }
-
-    public void setWidth(double width) {
-        this.width = width;
-    }
-
-    public double getLength() {
-        return length;
-    }
-
-    public void setLength(double length) {
-        this.length = length;
-    }
-
-    public double getArea() {
-        return width * this.length;
-    }
-
-    public double getPerimeter() {
-        return 2 * (width + this.length);
+        this.color = color;
     }
 
     @Override
-    public String toString() {
-        return "A Rectangle with width="
-                + getWidth()
-                + " and length="
-                + getLength()
-                + ", which is a subclass of "
-                + super.toString()
-                + ", Area=" +
-                + getArea();
+    public void resize() {
+        double resize = randomPercent();
+        System.out.printf("New Area of Rectangle: %.2f with resize %.2f %%\n", getArea() * resize, resize * 100);
     }
 
-    public Rectangle(String color, boolean filled) {
-        super(color, filled);
+
+    @Override
+    public double randomPercent() {
+        return (Math.random() * 100) / 100d;
     }
 
-    public void resize(double percent) {
-        this.length *= (percent / 200);
-        this.width += (percent / 200);
+    @Override
+    public void getInfo() {
+        System.out.printf("Rectangle width: %.2f, height: %.2f, color %s has area %.2f, perimeter %.2f\n", width, height, color, getArea(), getPerimeter());
+    }
+
+    @Override
+    public double getArea() {
+        return (this.width * this.height);
+    }
+
+    @Override
+    public double getPerimeter() {
+        return 2 * (this.width + this.height);
     }
 }

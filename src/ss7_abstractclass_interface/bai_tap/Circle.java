@@ -1,51 +1,40 @@
 package ss7_abstractclass_interface.bai_tap;
 
-public class Circle extends Shape {
-    private double radius = 1.0;
+public class Circle extends Shape implements Resizable{
+    private double radius = 1;
+    private String color = "red";
+    private final double PI = 3.1415d;
 
     public Circle() {
     }
 
-    public Circle(double radius) {
+    public Circle(double radius, String color) {
         this.radius = radius;
-    }
-
-    public Circle(double radius, String color, boolean filled) {
-        super(color, filled);
-        this.radius = radius;
-    }
-
-    public double getRadius() {
-        return radius;
-    }
-
-    public void setRadius(double radius) {
-        this.radius = radius;
+        this.color = color;
     }
 
     public double getArea() {
-        return radius * radius * Math.PI;
+        return Math.pow(radius, 2) * PI;
     }
 
     public double getPerimeter() {
-        return 2 * radius * Math.PI;
+        return 2 * PI * radius;
     }
 
     @Override
-    public String toString() {
-        return "A Circle with radius="
-                + getRadius()
-                + ", which is a subclass of "
-                + super.toString()
-                + ", Area=" +
-                + getArea();
+    public void resize() {
+        double resize = randomPercent();
+        System.out.printf("New Area of Circle: %.2f with resize %.2f %%\n", getArea() * resize, resize * 100);
     }
 
-    public Circle(String color, boolean filled) {
-        super(color, filled);
+    @Override
+    public void getInfo() {
+        System.out.printf("Circle radius: %.2f, color %s has area %.2f, perimeter %.2f\n", radius, color, getArea(), getPerimeter());
     }
 
-    public void resize(double percent) {
-        this.radius *= (percent / 200);
+
+    @Override
+    public double randomPercent() {
+        return (Math.random() * 100) / 100d;
     }
 }
