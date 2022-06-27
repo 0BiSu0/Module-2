@@ -1,4 +1,4 @@
-package ss12_thuat_toan_tim_kiem.bai_tap.tinh_do_phuc_tap_cua_thuat_toan;
+package ss12_thuat_toan_tim_kiem.thuc_hanh.tinh_do_phuc_tap_cua_thuat_toan;
 import java.util.Scanner;
 public class AlgorithmComplexityTest {
     public static void main(String[] args) {

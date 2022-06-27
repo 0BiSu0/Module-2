@@ -1,4 +1,4 @@
-package ss12_thuat_toan_tim_kiem.bai_tap;
+package ss12_thuat_toan_tim_kiem.bai_tap.tim_chuoi_tang_dan_co_do_dai_lon_nhat;
 import java.util.Scanner;
 import java.util.LinkedList;
 public class Timchuoitangdancododailonnhat<input> {
