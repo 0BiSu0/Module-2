@@ -4,10 +4,6 @@ public class Product {
     private int id;
     private int price;
     private String name;
-
-    public Product() {
-    }
-
     public Product(int id,String name,int price) {
         this.id = id;
         this.price = price;

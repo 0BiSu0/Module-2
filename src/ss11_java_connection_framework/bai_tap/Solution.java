@@ -69,7 +69,7 @@ public class Solution {
                 }
                 break;
                 default: {
-                    System.out.println("Bye...");
+                    System.out.println("Bye...!!!");
                     break loop;
                 }
             }
