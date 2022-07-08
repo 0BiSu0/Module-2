@@ -7,5 +7,8 @@ public class TriangleEdgesCheck {
         }else {
             System.out.println("Valid Triangle!!!");
         }
+        if (a < 0 || b < 0 || c < 0){
+            throw new TriangleEdgesException("Cac canh tam giac phai lon hon 0");
+        }
     }
 }

@@ -1,11 +1,15 @@
-package Luyen_tap.bai_tap_1;
+package luyen_tap.bai_tap_2;
+import luyen_tap.bai_tap_1.Product;
+import luyen_tap.bai_tap_1.ProductManager;
+
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 import static java.lang.Integer.parseInt;
 
 public class Main {
     public static void main(String[] args) {
-        Luyen_tap.bai_tap_1.ProductManager ProductManager = new ProductManager();
+        luyen_tap.bai_tap_1.ProductManager ProductManager = new ProductManager();
         loop:
         while (true) {
             System.out.print("1.Add new\n2.Delete By ID\n3.Show ALL List\n4.Find by Name\n5.Quit\n");
@@ -22,14 +26,18 @@ public class Main {
                     int price = parseInt(scanner.nextLine());
                     System.out.print("Producer: ");
                     String producer = scanner.nextLine();
-                    Product product = new Product(id, name, price, producer);
+                    luyen_tap.bai_tap_1.Product product = new Product(id, name, price, producer);
                     ProductManager.add(product);
                 }
                 break;
                 case "2": {
-                    System.out.println("ID want delete: ");
-                    int id = parseInt(scanner.nextLine());
-                    ProductManager.remove(id);
+                    try {
+                        System.out.println("ID want to delete: ");
+                        int id = parseInt(scanner.nextLine());
+                        ProductManager.remove(id);
+                    }catch (Exception ex){
+                        System.out.println("NotFoundException!!! ");
+                    }
                 }
                 break;
                 case "3": {

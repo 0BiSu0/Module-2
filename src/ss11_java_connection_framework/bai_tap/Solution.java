@@ -1,12 +1,16 @@
 package ss11_java_connection_framework.bai_tap;
 
+import java.util.LinkedList;
 import java.util.Scanner;
 public class Solution {
     public static void main(String[] args) {
+        String fileNameCopy = "";
+        String fileNamw = "";
         ProductManager ProductManager = new ProductManager();
         loop:
         while (true) {
             System.out.print("1.Add new\n2.Edit by ID\n3.Delete By ID\n4.Show ALL List\n5.Find by Name\n6.Sort\n7.Quit\n");
+
             Scanner scanner = new Scanner(System.in);
             System.out.print("Your choice: ");
             String choice = (scanner.nextLine());

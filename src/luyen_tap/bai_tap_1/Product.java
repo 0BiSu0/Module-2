@@ -1,4 +1,4 @@
-package Luyen_tap.bai_tap_1;
+package luyen_tap.bai_tap_1;
 public class Product {
     private int id;
     private int price;
