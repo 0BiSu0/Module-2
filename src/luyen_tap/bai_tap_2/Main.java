@@ -1,23 +1,21 @@
 package luyen_tap.bai_tap_2;
-import luyen_tap.bai_tap_1.Product;
-import luyen_tap.bai_tap_1.ProductManager;
-
-import java.sql.SQLOutput;
 import java.util.Scanner;
-
 import static java.lang.Integer.parseInt;
-
 public class Main {
+    private static  PhoneManager phoneManager = new PhoneManager();
+
     public static void main(String[] args) {
-        luyen_tap.bai_tap_1.ProductManager ProductManager = new ProductManager();
-        loop:
         while (true) {
-            System.out.print("1.Add new\n2.Delete By ID\n3.Show ALL List\n4.Find by Name\n5.Quit\n");
+            System.out.print("1.Add new Phone\n2.Delete Phone By ID\n3.Show ALL List Phone\n4.Find by Name\n5.Quit\n");
             Scanner scanner = new Scanner(System.in);
             System.out.print("Your choice: ");
-            String choice = (scanner.nextLine());
-            switch (choice) {
-                case "1": {
+            int choice1 = parseInt(scanner.nextLine());
+            switch (choice1) {
+                case 1:
+                System.out.println("1. ChinhHang");
+                System.out.println("2. XachTay");
+                int choice2 = parseInt(scanner.nextLine());
+
                     System.out.print("ID: ");
                     int id = parseInt(scanner.nextLine());
                     System.out.print("Name: ");
@@ -26,39 +24,53 @@ public class Main {
                     int price = parseInt(scanner.nextLine());
                     System.out.print("Producer: ");
                     String producer = scanner.nextLine();
-                    luyen_tap.bai_tap_1.Product product = new Product(id, name, price, producer);
-                    ProductManager.add(product);
+                if(choice2 == 1){
+                    System.out.print("Time: ");
+                    int time = parseInt(scanner.nextLine());
+                    System.out.print("Code: ");
+                    String code = scanner.nextLine();
+                    Phone ChinhHang = new ChinhHang(id, name, price, producer, time, code);
+                    phoneManager.add(ChinhHang);
+                }
+                else {
+                    System.out.print("Country: ");
+                    String country = (scanner.nextLine());
+                    System.out.print("Status: ");
+                    String status = scanner.nextLine();
+                    Phone XachTay = new XachTay(id, name, price, producer, country, status);
+                    phoneManager.add(XachTay);
+                }
+
+                    System.out.println("Created successfully");
+                    break;
+                case 2:
+                    phoneManager.showAllList();
+                    System.out.println("Enter ID to Delete:");
+                    int ID = parseInt(scanner.nextLine());
+                    phoneManager.remove(ID);
+                    System.out.println("Delete sucessfully!!!");
+                    break;
+                case 3: {
+
+                    phoneManager.showAllList();
                 }
                 break;
-                case "2": {
-                    try {
-                        System.out.println("ID want to delete: ");
-                        int id = parseInt(scanner.nextLine());
-                        ProductManager.remove(id);
-                    }catch (Exception ex){
-                        System.out.println("NotFoundException!!! ");
+                case 4:
+                    System.out.println("Enter Name to Search: ");
+                    String n = scanner.nextLine();
+                    Phone phone = phoneManager.searchProductByName(n);
+                    if (phone != null) {
+                        System.out.println(phone);
+                    }else {
+                        System.out.println("Not Found!!!");
                     }
-                }
-                break;
-                case "3": {
-                    ProductManager.showAllList();
-                }
-                break;
-                case "4": {
-                    System.out.print("Name want to check: ");
-                    String name = scanner.nextLine();
-                    if ((ProductManager.searchProductByName(name) == null)) {
-                        System.out.printf("List not have another have name %s\n", name);
-                    } else {
-                        System.out.println(ProductManager.searchProductByName(name).toString());
-                    }
-                }
-                break;
-                default: {
-                    System.out.println("Good Bye!!!");
-                    break loop;
-                }
+                    break;
             }
+
+
+
+
         }
     }
 }
+
